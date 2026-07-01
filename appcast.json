@@ -1,12 +1,17 @@
 {
-  "version": "1.5.0",
-  "build": "202",
-  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.5.0/WebhookForge.zip",
-  "sha256": "570737bd957f3b8d0fa91b64b79a2b2c9d7b834e87a8233050108c63402539fc",
-  "releaseNotes": "### Nouveautés\n- Détection dynamique du binaire `claude` : résolution automatique via shell de login (`zsh -l -c \"which claude\"`) — fonctionne quel que soit le mode d'installation (Homebrew, npm global, nvm, volta, fnm…), plus de chemin codé en dur\n- Chemin `claude` résolu sauvegardé en permanence après la première détection ; nouvelle détection uniquement si le binaire disparaît ou sur demande manuelle\n- Réglages → Connexion : bouton \"Détecter mon installation de Claude Code\" + champ de saisie manuelle du chemin (override permanent)\n- Réglages → Connexion : sélecteur \"Modèle par défaut\" (Sonnet 5 recommandé) repris par tous les sélecteurs de modèle (webhooks, tâches, surveillances, reprises de session)\n- Modèle par défaut mis à jour vers Sonnet 5 (`claude-sonnet-5`) partout dans l'app",
+  "version": "1.5.1",
+  "build": "203",
+  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.5.1/WebhookForge.zip",
+  "sha256": "e20722f7cd36caab4e282bfb0b42b678ec2695dfa898a3fd002b01cfdd1ac923",
+  "releaseNotes": "### Corrections\n- Détection claude via nvm : la recherche filesystem directe dans `~/.nvm/versions/node/*/bin/claude` remplace la dépendance à `.zshrc` — ce fichier n'est chargé par zsh qu'en shell **interactif**, ce que `zsh -l -c` (login seul, utilisé en v1.5.0) ne déclenche jamais. La détection ne trouvait donc rien chez les utilisateurs nvm et retombait sur `/usr/local/bin/claude`\n- Fallback shell générique (volta, fnm, autres) passé en `-i -l -c` (interactif + login) pour charger réellement les fichiers rc, avec analyse robuste de la sortie (ignore les bannières éventuelles du shell)\n- Reconnaissance vocale : la permission système n'était redemandée à chaque ouverture d'une vue avec barre de prompt (chaque instanciation du bouton micro déclenchait `requestAuthorization`) — la demande n'a désormais lieu qu'au premier clic réel sur le micro",
   "minimumSystemVersion": "14.0",
-  "publishedAt": "2026-07-01T05:33:34Z",
+  "publishedAt": "2026-07-01T06:45:09Z",
   "history": [
+    {
+      "version": "1.5.0",
+      "releaseNotes": "### Nouveautés\n- Détection dynamique du binaire `claude` : résolution automatique via shell de login (`zsh -l -c \"which claude\"`) — fonctionne quel que soit le mode d'installation (Homebrew, npm global, nvm, volta, fnm…), plus de chemin codé en dur\n- Chemin `claude` résolu sauvegardé en permanence après la première détection ; nouvelle détection uniquement si le binaire disparaît ou sur demande manuelle\n- Réglages → Connexion : bouton \"Détecter mon installation de Claude Code\" + champ de saisie manuelle du chemin (override permanent)\n- Réglages → Connexion : sélecteur \"Modèle par défaut\" (Sonnet 5 recommandé) repris par tous les sélecteurs de modèle (webhooks, tâches, surveillances, reprises de session)\n- Modèle par défaut mis à jour vers Sonnet 5 (`claude-sonnet-5`) partout dans l'app",
+      "publishedAt": "2026-07-01T05:33:34Z"
+    },
     {
       "version": "1.4.1",
       "releaseNotes": "### Nouveautés\n- iPhone : choix de la destination lors de l'envoi — webhook ou dossier surveillé\n- iPhone : envoi direct dans un dossier surveillé (le fichier est copié → FSEvents déclenche la surveillance automatiquement)\n- macOS : toggle \"Visible sur l'app iPhone\" par webhook et par surveillance (ON par défaut)\n- iOS : liste des dossiers surveillés visibles reçue depuis le Mac via relay",
@@ -101,11 +106,6 @@
       "version": "1.1.7",
       "releaseNotes": "### Nouveautés\n- Réglages : onglet Général en première position\n- Réglages → Général : section \"Schéma URL\" avec exemples Raycast, Shell, macOS Shortcuts\n- Réglages → Sessions : section \"Journaux\" — voir et exporter tous les logs Claude Code en `.txt`\n- Réglages → Sessions : nombre de sessions parallèles affiché à côté des boutons +/-",
       "publishedAt": "2026-06-28T09:45:19Z"
-    },
-    {
-      "version": "1.1.6",
-      "releaseNotes": "### Corrections\n- Bouton GitHub : \"Signaler un problème\" + icône toujours visibles dans la zone native macOS 26 (plus d'animation instable)\n- Footer : \"WebhookForge — v1.1.6\" centré (ZStack)\n- Releases GitHub : descriptions détaillées depuis CHANGELOG",
-      "publishedAt": "2026-06-28T09:27:36Z"
     }
   ]
 }
