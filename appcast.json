@@ -1,12 +1,17 @@
 {
-  "version": "1.5.1",
-  "build": "203",
-  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.5.1/WebhookForge.zip",
-  "sha256": "e20722f7cd36caab4e282bfb0b42b678ec2695dfa898a3fd002b01cfdd1ac923",
-  "releaseNotes": "### Corrections\n- Détection claude via nvm : la recherche filesystem directe dans `~/.nvm/versions/node/*/bin/claude` remplace la dépendance à `.zshrc` — ce fichier n'est chargé par zsh qu'en shell **interactif**, ce que `zsh -l -c` (login seul, utilisé en v1.5.0) ne déclenche jamais. La détection ne trouvait donc rien chez les utilisateurs nvm et retombait sur `/usr/local/bin/claude`\n- Fallback shell générique (volta, fnm, autres) passé en `-i -l -c` (interactif + login) pour charger réellement les fichiers rc, avec analyse robuste de la sortie (ignore les bannières éventuelles du shell)\n- Reconnaissance vocale : la permission système n'était redemandée à chaque ouverture d'une vue avec barre de prompt (chaque instanciation du bouton micro déclenchait `requestAuthorization`) — la demande n'a désormais lieu qu'au premier clic réel sur le micro",
+  "version": "1.7.0",
+  "build": "206",
+  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.7.0/WebhookForge.zip",
+  "sha256": "aad6810b6b7fc0d0c1cea37f9c237000b3a548940a657ebe95b904ccc4bb6cc6",
+  "releaseNotes": "### Nouveautés\n- Le \"Workflow\" devient une entité de première classe : nouvelle section sidebar \"Workflows\" (badge actifs) et \"Workflows configurés\", vues liste/détail dédiées avec résumé à puces, composants créés, historique et terminal-like des logs de génération\n- Barre de \"resume\" dans le détail d'un workflow pour l'affiner par description libre (`--resume`) sans dupliquer les composants déjà créés\n- Intégrations API réellement fonctionnelles à l'exécution : les clés sont injectées en variable d'environnement dans les sessions Claude Code réelles (webhooks/tâches/surveillances) uniquement pour les entités appartenant à un workflow concerné\n- La génération d'un workflow avec API consulte désormais la documentation (WebFetch) et rédige un `CLAUDE.md` décrivant l'authentification, les headers et les endpoints à utiliser, propagé automatiquement vers les dossiers concernés\n- Rédaction automatique (`***REDACTED***`) de toute valeur de clé API qui apparaîtrait par erreur dans les logs persistés, avant sauvegarde\n- Bouton de test par intégration API (session Claude Code ponctuelle, résultat `TEST_OK`/`TEST_ECHEC`) avant d'activer un workflow\n- Réglages → Identifiants : identifiants API réutilisables entre workflows (plusieurs identifiants possibles pour la même API), sélectionnables depuis un menu unifié (identifiants enregistrés / catalogue de 19 APIs populaires avec documentation déjà renseignée / saisie manuelle)\n- Réglages réorganisés : 7 onglets fusionnés en 5 (Général / Connexion / Identifiants / iPhone / Nouveautés), accordéons repliés par défaut pour les sections avancées de Général\n\n### Corrections\n- Onglet Identifiants : layout carte personnalisée hors `Form` pour un alignement correct des champs (un `Form` macOS imposait un style étiquette/valeur inadapté à un affichage de liste)\n- Fenêtre Réglages : largeur minimale forcée pour éviter le repli des onglets derrière un chevron d'overflow",
   "minimumSystemVersion": "14.0",
-  "publishedAt": "2026-07-01T06:45:09Z",
+  "publishedAt": "2026-07-01T23:38:35Z",
   "history": [
+    {
+      "version": "1.5.1",
+      "releaseNotes": "### Corrections\n- Détection claude via nvm : la recherche filesystem directe dans `~/.nvm/versions/node/*/bin/claude` remplace la dépendance à `.zshrc` — ce fichier n'est chargé par zsh qu'en shell **interactif**, ce que `zsh -l -c` (login seul, utilisé en v1.5.0) ne déclenche jamais. La détection ne trouvait donc rien chez les utilisateurs nvm et retombait sur `/usr/local/bin/claude`\n- Fallback shell générique (volta, fnm, autres) passé en `-i -l -c` (interactif + login) pour charger réellement les fichiers rc, avec analyse robuste de la sortie (ignore les bannières éventuelles du shell)\n- Reconnaissance vocale : la permission système n'était redemandée à chaque ouverture d'une vue avec barre de prompt (chaque instanciation du bouton micro déclenchait `requestAuthorization`) — la demande n'a désormais lieu qu'au premier clic réel sur le micro",
+      "publishedAt": "2026-07-01T06:45:09Z"
+    },
     {
       "version": "1.5.0",
       "releaseNotes": "### Nouveautés\n- Détection dynamique du binaire `claude` : résolution automatique via shell de login (`zsh -l -c \"which claude\"`) — fonctionne quel que soit le mode d'installation (Homebrew, npm global, nvm, volta, fnm…), plus de chemin codé en dur\n- Chemin `claude` résolu sauvegardé en permanence après la première détection ; nouvelle détection uniquement si le binaire disparaît ou sur demande manuelle\n- Réglages → Connexion : bouton \"Détecter mon installation de Claude Code\" + champ de saisie manuelle du chemin (override permanent)\n- Réglages → Connexion : sélecteur \"Modèle par défaut\" (Sonnet 5 recommandé) repris par tous les sélecteurs de modèle (webhooks, tâches, surveillances, reprises de session)\n- Modèle par défaut mis à jour vers Sonnet 5 (`claude-sonnet-5`) partout dans l'app",
@@ -101,11 +106,6 @@
       "version": "1.1.8",
       "releaseNotes": "### Nouveautés\n- Dashboard : icône de navigation dans le header des cards Webhooks, Tâches et Surveillances — clic pour accéder directement au listing correspondant\n- Tâches : le nom de la tâche est maintenant éditable directement dans la vue détail\n- Surveillances : le nom de la surveillance est maintenant éditable directement dans la vue détail\n\n### Corrections\n- Bouton \"Signaler un bug\" (renommé depuis \"Signaler un problème\")\n- Dashboard : \"dossiers surveillés\" au lieu de \"surveillances actives\"",
       "publishedAt": "2026-06-28T09:58:09Z"
-    },
-    {
-      "version": "1.1.7",
-      "releaseNotes": "### Nouveautés\n- Réglages : onglet Général en première position\n- Réglages → Général : section \"Schéma URL\" avec exemples Raycast, Shell, macOS Shortcuts\n- Réglages → Sessions : section \"Journaux\" — voir et exporter tous les logs Claude Code en `.txt`\n- Réglages → Sessions : nombre de sessions parallèles affiché à côté des boutons +/-",
-      "publishedAt": "2026-06-28T09:45:19Z"
     }
   ]
 }
