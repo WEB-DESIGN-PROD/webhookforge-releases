@@ -1,12 +1,17 @@
 {
-  "version": "1.12.0",
-  "build": "219",
-  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.12.0/WebhookForge.zip",
-  "sha256": "ed69181e68517630c3b69b55fee4a6a583dd971cdc97acbcb334f2a3963a2395",
-  "releaseNotes": "### Nouveautés\n- Suivi automatique du dossier de travail des workflows : un dossier déplacé ou renommé manuellement dans le Finder (app fermée) est retrouvé automatiquement au lancement suivant — tous les chemins (surveillances, tâches, webhooks) sont remappés et les surveillances redémarrent sans interruption\n- Une surveillance auto-désactivée parce que son dossier avait « disparu » est réactivée automatiquement si le dossier est retrouvé à son nouvel emplacement",
+  "version": "1.13.0",
+  "build": "222",
+  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.13.0/WebhookForge.zip",
+  "sha256": "fcb2ec275f5de73676bc3def46844924c105c540ec8a860ff8a654437c0fd922",
+  "releaseNotes": "### Nouveautés\n- Transcription vocale native : les messages vocaux envoyés depuis l'iPhone (et tout fichier audio déposé dans un dossier surveillé) sont transcrits localement avant la session Claude — moteur NVIDIA Parakeet TDT v3 (français, très rapide, 100 % hors ligne, Intel et Apple Silicon), fallback whisper-cli puis Dictée Apple\n- Réglages → Général : nouvelle section « Transcription des vocaux » — téléchargement du modèle (~680 Mo, une seule fois) avec progression, interrupteur, licences tierces consultables\n\n### Corrections\n- La fenêtre Réglages est identique quel que soit le point d'entrée (barre d'onglets native à icônes) et son titre reste « Réglages » sur tous les onglets",
   "minimumSystemVersion": "14.0",
-  "publishedAt": "2026-07-02T13:31:18Z",
+  "publishedAt": "2026-07-02T17:37:04Z",
   "history": [
+    {
+      "version": "1.12.0",
+      "releaseNotes": "### Nouveautés\n- Suivi automatique du dossier de travail des workflows : un dossier déplacé ou renommé manuellement dans le Finder (app fermée) est retrouvé automatiquement au lancement suivant — tous les chemins (surveillances, tâches, webhooks) sont remappés et les surveillances redémarrent sans interruption\n- Une surveillance auto-désactivée parce que son dossier avait « disparu » est réactivée automatiquement si le dossier est retrouvé à son nouvel emplacement",
+      "publishedAt": "2026-07-02T13:31:18Z"
+    },
     {
       "version": "1.11.0",
       "releaseNotes": "### Nouveautés\n- Vue détail d'un workflow : nouvelle carte « Dossier de travail » avec boutons Ouvrir (Finder) et Déplacer… — déplace le dossier complet et met à jour automatiquement tous les chemins des surveillances, tâches et webhooks (icônes et FSEvents redémarrés sur les nouveaux chemins, sans interruption)",
@@ -101,11 +106,6 @@
       "version": "1.2.7",
       "releaseNotes": "### Corrections\n- Keychain : relay secret et HMAC secrets migrent vers le \"data protection keychain\" (style iOS) — les items ne sont plus liés à la signature du binaire, ils persistent désormais entre rebuilds Debug sans demander le secret à chaque redémarrage\n- CI : xcodeproj commité — QuickActionInstaller.swift inclus dans le build CI\n- Quick Actions : incluses dans la release CI (build réussi)",
       "publishedAt": "2026-06-28T19:45:01Z"
-    },
-    {
-      "version": "1.2.4",
-      "releaseNotes": "### Corrections\n- Mise à jour : le vérificateur ignorait le cache HTTP — il pouvait signaler \"à jour\" même si une nouvelle version était disponible sur GitHub",
-      "publishedAt": "2026-06-28T19:20:42Z"
     }
   ]
 }
