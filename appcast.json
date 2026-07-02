@@ -1,12 +1,17 @@
 {
-  "version": "1.11.0",
-  "build": "217",
-  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.11.0/WebhookForge.zip",
-  "sha256": "14123e60ebbfe84853a7ca4294e269a8282bd3d2faa7d9408a4251b670fe7485",
-  "releaseNotes": "### Nouveautés\n- Vue détail d'un workflow : nouvelle carte « Dossier de travail » avec boutons Ouvrir (Finder) et Déplacer… — déplace le dossier complet et met à jour automatiquement tous les chemins des surveillances, tâches et webhooks (icônes et FSEvents redémarrés sur les nouveaux chemins, sans interruption)",
+  "version": "1.12.0",
+  "build": "219",
+  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.12.0/WebhookForge.zip",
+  "sha256": "ed69181e68517630c3b69b55fee4a6a583dd971cdc97acbcb334f2a3963a2395",
+  "releaseNotes": "### Nouveautés\n- Suivi automatique du dossier de travail des workflows : un dossier déplacé ou renommé manuellement dans le Finder (app fermée) est retrouvé automatiquement au lancement suivant — tous les chemins (surveillances, tâches, webhooks) sont remappés et les surveillances redémarrent sans interruption\n- Une surveillance auto-désactivée parce que son dossier avait « disparu » est réactivée automatiquement si le dossier est retrouvé à son nouvel emplacement",
   "minimumSystemVersion": "14.0",
-  "publishedAt": "2026-07-02T13:22:27Z",
+  "publishedAt": "2026-07-02T13:31:18Z",
   "history": [
+    {
+      "version": "1.11.0",
+      "releaseNotes": "### Nouveautés\n- Vue détail d'un workflow : nouvelle carte « Dossier de travail » avec boutons Ouvrir (Finder) et Déplacer… — déplace le dossier complet et met à jour automatiquement tous les chemins des surveillances, tâches et webhooks (icônes et FSEvents redémarrés sur les nouveaux chemins, sans interruption)",
+      "publishedAt": "2026-07-02T13:22:27Z"
+    },
     {
       "version": "1.10.0",
       "releaseNotes": "### Nouveautés\n- Réglages → Général : nouvel « Emplacement des workflows » — chaque workflow généré crée son dossier de travail dans cet emplacement (le Bureau par défaut, pour un repérage visuel immédiat)\n- La génération de workflow confine désormais tous les dossiers créés (surveillances, tâches, webhooks) dans le dossier de travail du workflow — fini les dossiers éparpillés dans Documents ou le répertoire personnel\n- Si la description demande explicitement un emplacement précis (« un dossier X sur mon Bureau », « surveille mes Téléchargements »), il est respecté à la lettre",
@@ -101,11 +106,6 @@
       "version": "1.2.4",
       "releaseNotes": "### Corrections\n- Mise à jour : le vérificateur ignorait le cache HTTP — il pouvait signaler \"à jour\" même si une nouvelle version était disponible sur GitHub",
       "publishedAt": "2026-06-28T19:20:42Z"
-    },
-    {
-      "version": "1.2.3",
-      "releaseNotes": "### Corrections\n- Relay : connexion WebSocket stable sur macOS 26 beta — `URLSession.shared` recyclait mal les connexions TCP causant un échec immédiat après l'upgrade WebSocket (101). Correction : URLSession dédiée avec pipelining désactivé.\n- NSServices : `NSPortName` aligné sur le CFBundleIdentifier (`app.webhookforge.app`) pour correspondre au port Mach enregistré par AppKit sur macOS moderne",
-      "publishedAt": "2026-06-28T19:16:48Z"
     }
   ]
 }
