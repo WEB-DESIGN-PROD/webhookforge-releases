@@ -1,12 +1,17 @@
 {
-  "version": "1.10.0",
-  "build": "215",
-  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.10.0/WebhookForge.zip",
-  "sha256": "4df5e4854770918a29f8426bd63cace368f6bdc69b68652552708da2079b80bc",
-  "releaseNotes": "### Nouveautés\n- Réglages → Général : nouvel « Emplacement des workflows » — chaque workflow généré crée son dossier de travail dans cet emplacement (le Bureau par défaut, pour un repérage visuel immédiat)\n- La génération de workflow confine désormais tous les dossiers créés (surveillances, tâches, webhooks) dans le dossier de travail du workflow — fini les dossiers éparpillés dans Documents ou le répertoire personnel\n- Si la description demande explicitement un emplacement précis (« un dossier X sur mon Bureau », « surveille mes Téléchargements »), il est respecté à la lettre",
+  "version": "1.11.0",
+  "build": "217",
+  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.11.0/WebhookForge.zip",
+  "sha256": "14123e60ebbfe84853a7ca4294e269a8282bd3d2faa7d9408a4251b670fe7485",
+  "releaseNotes": "### Nouveautés\n- Vue détail d'un workflow : nouvelle carte « Dossier de travail » avec boutons Ouvrir (Finder) et Déplacer… — déplace le dossier complet et met à jour automatiquement tous les chemins des surveillances, tâches et webhooks (icônes et FSEvents redémarrés sur les nouveaux chemins, sans interruption)",
   "minimumSystemVersion": "14.0",
-  "publishedAt": "2026-07-02T13:05:46Z",
+  "publishedAt": "2026-07-02T13:22:27Z",
   "history": [
+    {
+      "version": "1.10.0",
+      "releaseNotes": "### Nouveautés\n- Réglages → Général : nouvel « Emplacement des workflows » — chaque workflow généré crée son dossier de travail dans cet emplacement (le Bureau par défaut, pour un repérage visuel immédiat)\n- La génération de workflow confine désormais tous les dossiers créés (surveillances, tâches, webhooks) dans le dossier de travail du workflow — fini les dossiers éparpillés dans Documents ou le répertoire personnel\n- Si la description demande explicitement un emplacement précis (« un dossier X sur mon Bureau », « surveille mes Téléchargements »), il est respecté à la lettre",
+      "publishedAt": "2026-07-02T13:05:46Z"
+    },
     {
       "version": "1.9.1",
       "releaseNotes": "### Corrections\n- Crash (fault CoreData) après la suppression d'un workflow : la vue détail d'une surveillance/tâche supprimée en cascade restait sélectionnée et écrivait sur un objet inexistant — les sélections mortes sont maintenant purgées et l'affichage d'un objet supprimé est bloqué\n- L'arbre \"Contenu surveillé\" ne sauvegarde plus la liste d'exclusions quand rien n'a été purgé",
@@ -101,11 +106,6 @@
       "version": "1.2.3",
       "releaseNotes": "### Corrections\n- Relay : connexion WebSocket stable sur macOS 26 beta — `URLSession.shared` recyclait mal les connexions TCP causant un échec immédiat après l'upgrade WebSocket (101). Correction : URLSession dédiée avec pipelining désactivé.\n- NSServices : `NSPortName` aligné sur le CFBundleIdentifier (`app.webhookforge.app`) pour correspondre au port Mach enregistré par AppKit sur macOS moderne",
       "publishedAt": "2026-06-28T19:16:48Z"
-    },
-    {
-      "version": "1.2.2",
-      "releaseNotes": "### Corrections\n- Services Finder (clic-droit) : réenregistrement Launch Services après mise à jour automatique (`lsregister -f` ajouté dans le script d'installation)\n- Build local : désins­cription automatique de la version DerivedData après chaque build pour éviter le conflit NSServices",
-      "publishedAt": "2026-06-28T18:41:02Z"
     }
   ]
 }
