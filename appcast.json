@@ -1,12 +1,17 @@
 {
-  "version": "1.9.1",
-  "build": "213",
-  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.9.1/WebhookForge.zip",
-  "sha256": "cc0ecc3be4936f14fd90f4d284d55d7116007f3bfd205ac3234676b1e03dc0fc",
-  "releaseNotes": "### Corrections\n- Crash (fault CoreData) après la suppression d'un workflow : la vue détail d'une surveillance/tâche supprimée en cascade restait sélectionnée et écrivait sur un objet inexistant — les sélections mortes sont maintenant purgées et l'affichage d'un objet supprimé est bloqué\n- L'arbre \"Contenu surveillé\" ne sauvegarde plus la liste d'exclusions quand rien n'a été purgé",
+  "version": "1.10.0",
+  "build": "215",
+  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.10.0/WebhookForge.zip",
+  "sha256": "4df5e4854770918a29f8426bd63cace368f6bdc69b68652552708da2079b80bc",
+  "releaseNotes": "### Nouveautés\n- Réglages → Général : nouvel « Emplacement des workflows » — chaque workflow généré crée son dossier de travail dans cet emplacement (le Bureau par défaut, pour un repérage visuel immédiat)\n- La génération de workflow confine désormais tous les dossiers créés (surveillances, tâches, webhooks) dans le dossier de travail du workflow — fini les dossiers éparpillés dans Documents ou le répertoire personnel\n- Si la description demande explicitement un emplacement précis (« un dossier X sur mon Bureau », « surveille mes Téléchargements »), il est respecté à la lettre",
   "minimumSystemVersion": "14.0",
-  "publishedAt": "2026-07-02T12:03:30Z",
+  "publishedAt": "2026-07-02T13:05:46Z",
   "history": [
+    {
+      "version": "1.9.1",
+      "releaseNotes": "### Corrections\n- Crash (fault CoreData) après la suppression d'un workflow : la vue détail d'une surveillance/tâche supprimée en cascade restait sélectionnée et écrivait sur un objet inexistant — les sélections mortes sont maintenant purgées et l'affichage d'un objet supprimé est bloqué\n- L'arbre \"Contenu surveillé\" ne sauvegarde plus la liste d'exclusions quand rien n'a été purgé",
+      "publishedAt": "2026-07-02T12:03:30Z"
+    },
     {
       "version": "1.9.0",
       "releaseNotes": "### Nouveautés\n- Sauvegarde manuelle de la base complète (Réglages → Général → \"Sauvegarder maintenant\"), avec accès direct au dossier de sauvegardes dans le Finder\n- Sauvegarde automatique systématique juste avant l'installation de toute mise à jour — filet de sécurité si une migration de schéma échoue au premier lancement de la nouvelle version",
@@ -101,11 +106,6 @@
       "version": "1.2.2",
       "releaseNotes": "### Corrections\n- Services Finder (clic-droit) : réenregistrement Launch Services après mise à jour automatique (`lsregister -f` ajouté dans le script d'installation)\n- Build local : désins­cription automatique de la version DerivedData après chaque build pour éviter le conflit NSServices",
       "publishedAt": "2026-06-28T18:41:02Z"
-    },
-    {
-      "version": "1.2.1",
-      "releaseNotes": "### Corrections\n- Services Finder (clic-droit) : \"Surveiller le dossier\" et \"Importer dans un dossier surveillé\" fonctionnent à nouveau sur macOS 26 — `nonisolated` + `DispatchQueue.main.async` bloquaient silencieusement les appels NSServices",
-      "publishedAt": "2026-06-28T17:59:59Z"
     }
   ]
 }
