@@ -1,12 +1,17 @@
 {
-  "version": "1.9.0",
-  "build": "211",
-  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.9.0/WebhookForge.zip",
-  "sha256": "be62333e84b3bce9761c59cb983bf0e89001e96bf85397c72163f4535a67cabe",
-  "releaseNotes": "### Nouveautés\n- Sauvegarde manuelle de la base complète (Réglages → Général → \"Sauvegarder maintenant\"), avec accès direct au dossier de sauvegardes dans le Finder\n- Sauvegarde automatique systématique juste avant l'installation de toute mise à jour — filet de sécurité si une migration de schéma échoue au premier lancement de la nouvelle version",
+  "version": "1.9.1",
+  "build": "213",
+  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.9.1/WebhookForge.zip",
+  "sha256": "cc0ecc3be4936f14fd90f4d284d55d7116007f3bfd205ac3234676b1e03dc0fc",
+  "releaseNotes": "### Corrections\n- Crash (fault CoreData) après la suppression d'un workflow : la vue détail d'une surveillance/tâche supprimée en cascade restait sélectionnée et écrivait sur un objet inexistant — les sélections mortes sont maintenant purgées et l'affichage d'un objet supprimé est bloqué\n- L'arbre \"Contenu surveillé\" ne sauvegarde plus la liste d'exclusions quand rien n'a été purgé",
   "minimumSystemVersion": "14.0",
-  "publishedAt": "2026-07-02T08:11:17Z",
+  "publishedAt": "2026-07-02T12:03:30Z",
   "history": [
+    {
+      "version": "1.9.0",
+      "releaseNotes": "### Nouveautés\n- Sauvegarde manuelle de la base complète (Réglages → Général → \"Sauvegarder maintenant\"), avec accès direct au dossier de sauvegardes dans le Finder\n- Sauvegarde automatique systématique juste avant l'installation de toute mise à jour — filet de sécurité si une migration de schéma échoue au premier lancement de la nouvelle version",
+      "publishedAt": "2026-07-02T08:11:17Z"
+    },
     {
       "version": "1.8.0",
       "releaseNotes": "### Nouveautés\n- Les workflows peuvent maintenant être une destination d'envoi depuis l'app iPhone : nouvelle liste `ios_workflows_list`, le fichier est déposé directement dans le dossier racine (`generationWorkDir`) du workflow choisi\n- La liste des webhooks visible depuis l'iPhone n'affiche plus que les webhooks configurés manuellement — ceux appartenant à un workflow ne sont accessibles que via la destination \"Workflow\"\n\n### Corrections\n- `WorkflowImporter` ne renseignait jamais `generationWorkDir` pour un workflow importé depuis un fichier JSON pur (sans passer par la génération IA), le rendant invisible depuis la nouvelle destination iOS",
@@ -101,11 +106,6 @@
       "version": "1.2.1",
       "releaseNotes": "### Corrections\n- Services Finder (clic-droit) : \"Surveiller le dossier\" et \"Importer dans un dossier surveillé\" fonctionnent à nouveau sur macOS 26 — `nonisolated` + `DispatchQueue.main.async` bloquaient silencieusement les appels NSServices",
       "publishedAt": "2026-06-28T17:59:59Z"
-    },
-    {
-      "version": "1.2.0",
-      "releaseNotes": "### Corrections\n- Dashboard : accord singulier/pluriel français correct pour 0 (\"0 tâche planifiée\", \"0 webhook configuré\", \"0 dossier surveillé\")",
-      "publishedAt": "2026-06-28T10:19:57Z"
     }
   ]
 }
