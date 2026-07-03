@@ -1,12 +1,17 @@
 {
-  "version": "1.13.0",
-  "build": "222",
-  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.13.0/WebhookForge.zip",
-  "sha256": "fcb2ec275f5de73676bc3def46844924c105c540ec8a860ff8a654437c0fd922",
-  "releaseNotes": "### Nouveautés\n- Transcription vocale native : les messages vocaux envoyés depuis l'iPhone (et tout fichier audio déposé dans un dossier surveillé) sont transcrits localement avant la session Claude — moteur NVIDIA Parakeet TDT v3 (français, très rapide, 100 % hors ligne, Intel et Apple Silicon), fallback whisper-cli puis Dictée Apple\n- Réglages → Général : nouvelle section « Transcription des vocaux » — téléchargement du modèle (~680 Mo, une seule fois) avec progression, interrupteur, licences tierces consultables\n\n### Corrections\n- La fenêtre Réglages est identique quel que soit le point d'entrée (barre d'onglets native à icônes) et son titre reste « Réglages » sur tous les onglets",
+  "version": "1.14.0",
+  "build": "224",
+  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.14.0/WebhookForge.zip",
+  "sha256": "45f4b80be223723273483bd7ecd877d7370a407cc88dd3a1da7556f8584edb41",
+  "releaseNotes": "### Nouveautés\n- Protection totale des données : la mise à jour commence par une sauvegarde complète et vérifiée de la base — si elle échoue, la mise à jour est refusée. La barre de progression confirme « ✓ Données sauvegardées » pendant toute l'installation\n- Réglages → Sauvegarde des données : nouveau bouton « Restaurer une sauvegarde… » — remplace la base par une sauvegarde choisie et redémarre l'app\n- En cas d'échec d'ouverture de la base au lancement : plus jamais silencieux — alerte explicite avec le détail technique, journal `migration-errors.log`, et double sauvegarde automatique avant toute réinitialisation\n\n### Corrections\n- L'application distribuée est désormais signée (ad-hoc) — identité cohérente pour macOS, notamment sur Apple Silicon lors des mises à jour",
   "minimumSystemVersion": "14.0",
-  "publishedAt": "2026-07-02T17:37:04Z",
+  "publishedAt": "2026-07-03T05:11:10Z",
   "history": [
+    {
+      "version": "1.13.0",
+      "releaseNotes": "### Nouveautés\n- Transcription vocale native : les messages vocaux envoyés depuis l'iPhone (et tout fichier audio déposé dans un dossier surveillé) sont transcrits localement avant la session Claude — moteur NVIDIA Parakeet TDT v3 (français, très rapide, 100 % hors ligne, Intel et Apple Silicon), fallback whisper-cli puis Dictée Apple\n- Réglages → Général : nouvelle section « Transcription des vocaux » — téléchargement du modèle (~680 Mo, une seule fois) avec progression, interrupteur, licences tierces consultables\n\n### Corrections\n- La fenêtre Réglages est identique quel que soit le point d'entrée (barre d'onglets native à icônes) et son titre reste « Réglages » sur tous les onglets",
+      "publishedAt": "2026-07-02T17:37:04Z"
+    },
     {
       "version": "1.12.0",
       "releaseNotes": "### Nouveautés\n- Suivi automatique du dossier de travail des workflows : un dossier déplacé ou renommé manuellement dans le Finder (app fermée) est retrouvé automatiquement au lancement suivant — tous les chemins (surveillances, tâches, webhooks) sont remappés et les surveillances redémarrent sans interruption\n- Une surveillance auto-désactivée parce que son dossier avait « disparu » est réactivée automatiquement si le dossier est retrouvé à son nouvel emplacement",
@@ -101,11 +106,6 @@
       "version": "1.2.8",
       "releaseNotes": "### Corrections\n- Keychain : revert du changement v1.2.7 — `kSecUseDataProtectionKeychain` nécessite l'entitlement `keychain-access-groups` (non présent) et bloquait silencieusement toutes les écritures Keychain (relay secret non sauvegardé, relay jamais connecté)",
       "publishedAt": "2026-06-28T19:48:34Z"
-    },
-    {
-      "version": "1.2.7",
-      "releaseNotes": "### Corrections\n- Keychain : relay secret et HMAC secrets migrent vers le \"data protection keychain\" (style iOS) — les items ne sont plus liés à la signature du binaire, ils persistent désormais entre rebuilds Debug sans demander le secret à chaque redémarrage\n- CI : xcodeproj commité — QuickActionInstaller.swift inclus dans le build CI\n- Quick Actions : incluses dans la release CI (build réussi)",
-      "publishedAt": "2026-06-28T19:45:01Z"
     }
   ]
 }
