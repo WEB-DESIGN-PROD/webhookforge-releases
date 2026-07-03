@@ -1,12 +1,17 @@
 {
-  "version": "1.16.0",
-  "build": "234",
-  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.16.0/WebhookForge.zip",
-  "sha256": "67134f7a73a20fb39c73d44c4717af507501e5df80fa467265f6a81aebcb9698",
-  "releaseNotes": "### Nouveautés\n- Générateur de formulaires web sans code : depuis un webhook, un bouton « Formulaire à intégrer… » ouvre un éditeur avec aperçu en direct et fournit un code HTML à copier-coller sur n'importe quel site (WordPress, Prestashop, HTML) — zéro plugin\n- 13 types de champs : texte, email, téléphone, nombre, date, texte long, liste déroulante (choix unique ou multiple), boutons radio, cases à cocher, puces à sélectionner, interrupteur oui/non, notation par étoiles\n- 3 modes d'affichage : intégré dans la page, bulle flottante (façon chatbot), ou bouton ouvrant une fenêtre popup\n- Personnalisation : couleur d'accent, couleur des libellés, fond transparent (s'adapte à la charte du site), texte du bouton, message de remerciement ou redirection\n- Validation des champs en français (champ requis, format email/téléphone, consentement RGPD) avec messages clairs\n- Anti-spam : protection intégrée (piège à robots + délai), ou reCAPTCHA/Cloudflare Turnstile ; case de consentement RGPD ; liste de domaines autorisés (pour un site ou un réseau de sites)\n- Sécurité : aucun secret dans le code du formulaire, jeton révocable, filtrage strict et nettoyage des données côté Mac (voir SECURITE-FORMULAIRES.md)",
+  "version": "1.16.1",
+  "build": "236",
+  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.16.1/WebhookForge.zip",
+  "sha256": "c5693e26f380571427f0559bf0b981def1ca9db64a891a0e4a2d6ab3fee0e2ff",
+  "releaseNotes": "### Nouveautés\n- Le nom du relais dans le pied de page du tableau de bord est désormais cliquable et ouvre sa page de statut (/health)\n- Réglages → Connexion : nouveau champ pour personnaliser l'URL de la page de statut (déduite automatiquement de l'URL relais si laissé vide)",
   "minimumSystemVersion": "14.0",
-  "publishedAt": "2026-07-03T10:58:59Z",
+  "publishedAt": "2026-07-03T15:39:15Z",
   "history": [
+    {
+      "version": "1.16.0",
+      "releaseNotes": "### Nouveautés\n- Générateur de formulaires web sans code : depuis un webhook, un bouton « Formulaire à intégrer… » ouvre un éditeur avec aperçu en direct et fournit un code HTML à copier-coller sur n'importe quel site (WordPress, Prestashop, HTML) — zéro plugin\n- 13 types de champs : texte, email, téléphone, nombre, date, texte long, liste déroulante (choix unique ou multiple), boutons radio, cases à cocher, puces à sélectionner, interrupteur oui/non, notation par étoiles\n- 3 modes d'affichage : intégré dans la page, bulle flottante (façon chatbot), ou bouton ouvrant une fenêtre popup\n- Personnalisation : couleur d'accent, couleur des libellés, fond transparent (s'adapte à la charte du site), texte du bouton, message de remerciement ou redirection\n- Validation des champs en français (champ requis, format email/téléphone, consentement RGPD) avec messages clairs\n- Anti-spam : protection intégrée (piège à robots + délai), ou reCAPTCHA/Cloudflare Turnstile ; case de consentement RGPD ; liste de domaines autorisés (pour un site ou un réseau de sites)\n- Sécurité : aucun secret dans le code du formulaire, jeton révocable, filtrage strict et nettoyage des données côté Mac (voir SECURITE-FORMULAIRES.md)",
+      "publishedAt": "2026-07-03T10:58:59Z"
+    },
     {
       "version": "1.15.0",
       "releaseNotes": "### Nouveautés\n- Chaque workflow génère un fichier INSTRUCTIONS.md à sa racine et dans chaque dossier surveillé / répertoire de tâche : description, résumé, directives complètes de chaque composant — lisible par un humain ou un assistant IA (Claude Code, Gemini…) qui explore les dossiers sans ouvrir l'app\n- Synchronisation bidirectionnelle : modifier un prompt dans l'app met à jour les fichiers, et modifier la zone éditable (front matter) d'un INSTRUCTIONS.md à la main met à jour l'app instantanément — avec notification, et protection contre les éditions invalides (version fautive préservée dans INSTRUCTIONS-invalide.md)\n- Les fichiers INSTRUCTIONS.md et CLAUDE.md ne déclenchent jamais les surveillances de dossiers",
@@ -101,11 +106,6 @@
       "version": "1.3.2",
       "releaseNotes": "### Corrections\n- Quick Actions Finder : suppression de `NSPortName: Automator` — les services système modernes ne l'utilisent pas (avec NSPortName, macOS route vers Automator.app legacy ; sans, le runner XPC gère directement)\n- Quick Actions Finder : ajout des champs `workflowMetaData` requis pour l'invocation Services : `serviceInputTypeIdentifier` (`com.apple.Automator.fileSystemObject.folder`), `serviceOutputTypeIdentifier` (`com.apple.Automator.nothing`), `serviceProcessesInput` (0), `serviceApplicationBundleID`, `serviceApplicationPath` — ces champs sont présents dans tous les services système Apple et absents de nos workflows précédents",
       "publishedAt": "2026-06-29T05:11:22Z"
-    },
-    {
-      "version": "1.3.1",
-      "releaseNotes": "### Corrections\n- Quick Actions Finder : architecture 2 actions — \"Get Selected Finder Items 2\" (action système conçue pour recevoir les items depuis Services) suivi de \"Run AppleScript\" (reçoit les chemins POSIX déjà convertis)\n- Quick Actions Finder : `open location` au lieu de `do shell script /usr/bin/open` pour ouvrir le scheme URL\n- Quick Actions Finder : fallback `tell application \"Finder\" to get selection` si l'input est vide (type conversion totalement cassée)",
-      "publishedAt": "2026-06-28T20:27:59Z"
     }
   ]
 }
