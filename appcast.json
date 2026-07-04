@@ -1,12 +1,17 @@
 {
-  "version": "1.16.1",
-  "build": "236",
-  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.16.1/WebhookForge.zip",
-  "sha256": "c5693e26f380571427f0559bf0b981def1ca9db64a891a0e4a2d6ab3fee0e2ff",
-  "releaseNotes": "### Nouveautés\n- Le nom du relais dans le pied de page du tableau de bord est désormais cliquable et ouvre sa page de statut (/health)\n- Réglages → Connexion : nouveau champ pour personnaliser l'URL de la page de statut (déduite automatiquement de l'URL relais si laissé vide)",
+  "version": "1.17.0",
+  "build": "237",
+  "url": "https://github.com/WEB-DESIGN-PROD/webhookforge-releases/releases/download/v1.17.0/WebhookForge.zip",
+  "sha256": "3a48f48220e9d2a913aa96f3d63c6a3aa9a95797977de4b55d61e928e1852b84",
+  "releaseNotes": "### Nouveautés\n- Vocaux longs (entretiens 1–2 h) : la transcription Parakeet traite désormais l'audio par fenêtres d'~30 s coupées sur les silences — mémoire constante quelle que soit la durée\n- Réception des vocaux iOS volumineux : limite des messages WebSocket relevée de 20 Mo à 128 Mo\n- Prise en charge du format audio CAF (.caf) envoyé par l'app iOS (enregistrement longue durée résistant aux crashs)",
   "minimumSystemVersion": "14.0",
-  "publishedAt": "2026-07-03T15:39:15Z",
+  "publishedAt": "2026-07-04T09:02:43Z",
   "history": [
+    {
+      "version": "1.16.1",
+      "releaseNotes": "### Nouveautés\n- Le nom du relais dans le pied de page du tableau de bord est désormais cliquable et ouvre sa page de statut (/health)\n- Réglages → Connexion : nouveau champ pour personnaliser l'URL de la page de statut (déduite automatiquement de l'URL relais si laissé vide)",
+      "publishedAt": "2026-07-03T15:39:15Z"
+    },
     {
       "version": "1.16.0",
       "releaseNotes": "### Nouveautés\n- Générateur de formulaires web sans code : depuis un webhook, un bouton « Formulaire à intégrer… » ouvre un éditeur avec aperçu en direct et fournit un code HTML à copier-coller sur n'importe quel site (WordPress, Prestashop, HTML) — zéro plugin\n- 13 types de champs : texte, email, téléphone, nombre, date, texte long, liste déroulante (choix unique ou multiple), boutons radio, cases à cocher, puces à sélectionner, interrupteur oui/non, notation par étoiles\n- 3 modes d'affichage : intégré dans la page, bulle flottante (façon chatbot), ou bouton ouvrant une fenêtre popup\n- Personnalisation : couleur d'accent, couleur des libellés, fond transparent (s'adapte à la charte du site), texte du bouton, message de remerciement ou redirection\n- Validation des champs en français (champ requis, format email/téléphone, consentement RGPD) avec messages clairs\n- Anti-spam : protection intégrée (piège à robots + délai), ou reCAPTCHA/Cloudflare Turnstile ; case de consentement RGPD ; liste de domaines autorisés (pour un site ou un réseau de sites)\n- Sécurité : aucun secret dans le code du formulaire, jeton révocable, filtrage strict et nettoyage des données côté Mac (voir SECURITE-FORMULAIRES.md)",
@@ -101,11 +106,6 @@
       "version": "1.3.3",
       "releaseNotes": "### Corrections\n- Quick Actions Finder : chemin en format POSIX (`/Users/...`) au lieu de HFS (`Macintosh HD:Users:...`) — `POSIX path of theItem` en premier, `as text` en fallback seulement",
       "publishedAt": "2026-06-29T05:14:25Z"
-    },
-    {
-      "version": "1.3.2",
-      "releaseNotes": "### Corrections\n- Quick Actions Finder : suppression de `NSPortName: Automator` — les services système modernes ne l'utilisent pas (avec NSPortName, macOS route vers Automator.app legacy ; sans, le runner XPC gère directement)\n- Quick Actions Finder : ajout des champs `workflowMetaData` requis pour l'invocation Services : `serviceInputTypeIdentifier` (`com.apple.Automator.fileSystemObject.folder`), `serviceOutputTypeIdentifier` (`com.apple.Automator.nothing`), `serviceProcessesInput` (0), `serviceApplicationBundleID`, `serviceApplicationPath` — ces champs sont présents dans tous les services système Apple et absents de nos workflows précédents",
-      "publishedAt": "2026-06-29T05:11:22Z"
     }
   ]
 }
